@@ -69,7 +69,6 @@ $.each(data,function(index){
                 if (!next.length) {
                     next = $(this).siblings(':first');
                   }
-                
                 next.children(':first-child').clone().appendTo($(this));
               }
         });

@@ -1,0 +1,35 @@
+
+    
+    .rc-rcbrand-nav-left,
+    .rc-rcbrand-nav-right {
+        padding:5px 10px;
+        position: absolute;
+        cursor: pointer;
+        z-index: 4;
+        top: 50%;
+        transform: translateY(-50%);   
+        background: #fff;
+        color: black;     
+    }
+    
+   
+    
+    .rc-rcbrand-nav-left:before {
+        content: "<"
+    }
+    
+    .rc-rcbrand-nav-left.disabled {
+        opacity: 0.4;
+    }
+    
+    .rc-rcbrand-nav-right {
+        right: 5px;    
+    }
+    
+    .rc-rcbrand-nav-right:before {
+        content: ">"
+    }
+    
+    .rc-rcbrand-nav-right.disabled {
+        opacity: 0.4;
+    }

@@ -32,6 +32,7 @@ $(function(){
       }
    
   });
+
   $.ajax({
     url:'https://raw.githubusercontent.com/rashaobaid/projectt1/master/nonfiction.json',
 dataType: 'json',
@@ -39,11 +40,12 @@ cache :false,
 success:function(data ,status){  
 console.log(data);
 var innerHtml = [];
+indicator = '';
 $.each(data,function(index){
   var item = data[index]
-  var inner = ` <div class=" col-lg-2 col-md-4 col-sm-4 col-12 ">`+
-  `<div class="card1 ">`+
-      `<div class="center"><img class="card1-img-top" src="${item['image']}"  alt="" ></div>`+
+  var inner = ` <div class=" col-lg-2 col-md-4 col-sm-6 col-12 ">`+
+  `<div class="card1">`+
+      `<img class="card1-img-top" src="${item['image']}" width="146" alt="" >`+
       `<div class="card1-body">`+
         `<p class="card1-title">${item['title']}</p>`+
         `<p class="card1-text">${item['author']}</p>`+
@@ -54,26 +56,6 @@ $.each(data,function(index){
  
         innerHtml.push(inner);
       });
-
-      (function(){
-      $('#recipeCarousel').carousel({interval: 10000 })
-        $('.carousel .carousel-item').each(function(){
-            var minPerSlide = 6;
-            var next = $(this).next();
-            if (!next.length) {
-            next = $(this).siblings(':first');
-            }
-            next.children(':first-child').clone().appendTo($(this));
-            for (var i=0;i<minPerSlide;i++) {
-                next=next.next();
-                if (!next.length) {
-                    next = $(this).siblings(':first');
-                  }
-                
-                next.children(':first-child').clone().appendTo($(this));
-              }
-        });
-      });
       
       $('.carousel-item').html(innerHtml);
     },
@@ -83,7 +65,8 @@ $.each(data,function(index){
       console.log(err);
     }
 });
-  
+
+
 $.ajax({
   url:'https://raw.githubusercontent.com/rashaobaid/projectt1/master/fiction.json',
 dataType: 'json',
@@ -95,23 +78,20 @@ indicator = '';
 $.each(data,function(index){
 var item = data[index]
 var inner = ` <div class=" col-lg-2 col-md-4 col-sm-6 col-12 ">`+
-`<div class="card1 ">`+
-    `<div class="center"><img class="card1-img-top" src="${item['image']}"  alt="" ></div>`+
-    `<div class="card1-body">`+
-      `<p class="card1-title">${item['title']}</p>`+
-      `<p class="card1-text">${item['author']}</p>`+
-      `<p class="card1-text2">${item['reviewedBy']}</p>`+
-    `</div>`+
-  `</div>`+
-`</div>`
-
+            `<div class="card1 ">`+
+                `<div class="center"><img class="card1-img-top" src="${item['image']}"  alt="" ></div>`+
+                `<div class="card1-body">`+
+                  `<p class="card1-title">${item['title']}</p>`+
+                  `<p class="card1-text">${item['author']}</p>`+
+                  `<p class="card1-text2">${item['reviewedBy']}</p>`+
+                `</div>`+
+              `</div>`+
+            `</div>`
       innerHtml.push(inner);
     });
     $('.carousel-item2').html(innerHtml);
   },
   error:function(xhr,textStatus,err){
-    console.log(xhr);
-    console.log(textStatus);
     console.log(err);
   }
 });
@@ -125,15 +105,15 @@ var innerHtml = [];
 $.each(data,function(index){
 var item = data[index]
 var inner = ` <div class=" col-lg-2 col-md-4 col-sm-6 col-12 ">`+
-`<div class="card1 ">`+
-    `<div class="center"><img class="card1-img-top" src="${item['image']}"  alt="" ></div>`+
-    `<div class="card1-body">`+
-      `<p class="card1-title">${item['title']}</p>`+
-      `<p class="card1-text">${item['author']}</p>`+
-      `<p class="card1-text2">${item['reviewedBy']}</p>`+
-    `</div>`+
-  `</div>`+
-`</div>`
+            `<div class="card1 ">`+
+                `<div class="center"><img class="card1-img-top" src="${item['image']}"  alt="" ></div>`+
+                `<div class="card1-body">`+
+                  `<p class="card1-title">${item['title']}</p>`+
+                  `<p class="card1-text">${item['author']}</p>`+
+                  `<p class="card1-text2">${item['reviewedBy']}</p>`+
+                `</div>`+
+              `</div>`+
+            `</div>`
       innerHtml.push(inner);
     });
     $('.carousel-item3').html(innerHtml);
@@ -152,15 +132,15 @@ var innerHtml = [];
 $.each(data,function(index){
 var item = data[index]
 var inner = ` <div class=" col-lg-2 col-md-4 col-sm-6 col-12 ">`+
-`<div class="card1 ">`+
-    `<div class="center"><img class="card1-img-top" src="${item['image']}"  alt="" ></div>`+
-    `<div class="card1-body">`+
-      `<p class="card1-title">${item['title']}</p>`+
-      `<p class="card1-text">${item['author']}</p>`+
-      `<p class="card1-text2">${item['reviewedBy']}</p>`+
-    `</div>`+
-  `</div>`+
-`</div>`
+            `<div class="card1 ">`+
+                `<div class="center"><img class="card1-img-top" src="${item['image']}"  alt="" ></div>`+
+                `<div class="card1-body">`+
+                  `<p class="card1-title">${item['title']}</p>`+
+                  `<p class="card1-text">${item['author']}</p>`+
+                  `<p class="card1-text2">${item['reviewedBy']}</p>`+
+                `</div>`+
+              `</div>`+
+            `</div>`
       innerHtml.push(inner);
     });
     $('.carousel-item4').html(innerHtml);
@@ -169,8 +149,6 @@ var inner = ` <div class=" col-lg-2 col-md-4 col-sm-6 col-12 ">`+
     console.log(err);
   }
 });
-
-
 });
 
 
